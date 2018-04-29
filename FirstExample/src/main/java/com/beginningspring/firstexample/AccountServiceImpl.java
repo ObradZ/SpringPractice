@@ -5,13 +5,17 @@
  */
 package com.beginningspring.firstexample;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author javaBrat
  */
+@Service
 public class AccountServiceImpl implements AccountService{
     private AccountDao accountDao;
-    
+    @Autowired
     public void setAccountDao(AccountDao accountDao){
         this.accountDao=accountDao;
     }

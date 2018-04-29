@@ -9,11 +9,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author javaBrat
  */
+@Repository
 public class AccountDaoInMemoryImpl implements AccountDao{
 
     private Map<Long,Account> accountsMap = new HashMap<>();

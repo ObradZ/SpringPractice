@@ -16,14 +16,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-//        Annotation Configuration
+//        Java-Based  Configuration
 //        AnnotationConfigApplicationContext applicationContext =
 //new AnnotationConfigApplicationContext(BeanConfiguration.class);
 
-//       XML Configuration
+//       XML Configuration or Annotation
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
-    
-        
 
         AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
         AccountService.class.getSimpleName();
@@ -37,7 +35,7 @@ public class Main {
 
         System.out.println("Account 1 balance :" + accountService.getAccount(1).getBalance());
         System.out.println("Account 2 balance :" + accountService.getAccount(2).getBalance());
-           System.out.println(Main.class);
+        System.out.println(Main.class);
 
     }
 }
