@@ -10,20 +10,31 @@ package com.beginningspring.firstexample;
  * @author javaBrat
  */
 public class AccountServiceImpl implements AccountService{
-
+    private AccountDao accountDao;
+    
+    public void setAccountDao(AccountDao accountDao){
+        this.accountDao=accountDao;
+    }
     @Override
     public void transferMoney(long sourceAccountId, long targetAccountId, double amount) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Account srcAccount = accountDao.find(sourceAccountId);
+       Account trgAccount = accountDao.find(targetAccountId);
+       srcAccount.setBalance(srcAccount.getBalance()-amount);
+       trgAccount.setBalance(trgAccount.getBalance()+amount);
+       accountDao.update(srcAccount);
+       accountDao.update(trgAccount);
     }
 
     @Override
     public void depositMoney(long accountId, double amount) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Account account = accountDao.find(accountId);
+        account.setBalance(account.getBalance() + amount);
+        accountDao.update(account);
     }
 
     @Override
     public Account getAccount(long accountId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return accountDao.find(accountId);
     }
 
 
