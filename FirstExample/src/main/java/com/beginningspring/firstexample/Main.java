@@ -5,30 +5,39 @@
  */
 package com.beginningspring.firstexample;
 
+import java.io.File;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
  * @author javaBrat
  */
 public class Main {
+
     public static void main(String[] args) {
+//        Annotation Configuration
+//        AnnotationConfigApplicationContext applicationContext =
+//new AnnotationConfigApplicationContext(BeanConfiguration.class);
+
+//       XML Configuration
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+    
         
-        AnnotationConfigApplicationContext applicationContext =
-new AnnotationConfigApplicationContext(BeanConfiguration.class);
-        
-    AccountService accountService = applicationContext.getBean("accountService",AccountService.class);
-    
-    System.out.println("Before money transfer");
-    
-    System.out.println("Account 1 balance :" + accountService.getAccount(1).getBalance());
-    System.out.println("Account 2 balance :" + accountService.getAccount(2).getBalance());
-    
-    accountService.transferMoney(1, 2, 5.0);
-    System.out.println("After money transfer");
-    
-    System.out.println("Account 1 balance :" + accountService.getAccount(1).getBalance());
-    System.out.println("Account 2 balance :" + accountService.getAccount(2).getBalance());
+
+        AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
+        AccountService.class.getSimpleName();
+        System.out.println("Before money transfer");
+
+        System.out.println("Account 1 balance :" + accountService.getAccount(1).getBalance());
+        System.out.println("Account 2 balance :" + accountService.getAccount(2).getBalance());
+
+        accountService.transferMoney(1, 2, 5.0);
+        System.out.println("After money transfer");
+
+        System.out.println("Account 1 balance :" + accountService.getAccount(1).getBalance());
+        System.out.println("Account 2 balance :" + accountService.getAccount(2).getBalance());
+           System.out.println(Main.class);
 
     }
 }
