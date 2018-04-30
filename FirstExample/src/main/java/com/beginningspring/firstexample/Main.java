@@ -17,14 +17,13 @@ public class Main {
 
     public static void main(String[] args) {
 //        Java-Based  Configuration
-//        AnnotationConfigApplicationContext applicationContext =
-//new AnnotationConfigApplicationContext(BeanConfiguration.class);
+        AnnotationConfigApplicationContext applicationContext =
+new AnnotationConfigApplicationContext(BeanConfiguration.class);
 
 //       XML Configuration or Annotation
-        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
-
+//        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("beans.xml");
+        
         AccountService accountService = applicationContext.getBean("accountService", AccountService.class);
-        AccountService.class.getSimpleName();
         System.out.println("Before money transfer");
 
         System.out.println("Account 1 balance :" + accountService.getAccount(1).getBalance());

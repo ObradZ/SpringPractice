@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class AccountServiceImpl implements AccountService{
     private AccountDao accountDao;
     
-    public AccountServiceImpl(AccountDao accountDao){
+    public void setAccountDao(AccountDao accountDao){
         this.accountDao=accountDao;
     }
     @Override
