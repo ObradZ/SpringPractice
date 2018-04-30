@@ -16,8 +16,7 @@ import org.springframework.context.annotation.Configuration;
 public class BeanConfiguration {
     @Bean
     public AccountService accountService(){
-        AccountServiceImpl bean = new AccountServiceImpl();
-        bean.setAccountDao(accountDao());
+        AccountServiceImpl bean = new AccountServiceImpl(accountDao());
         return bean;
     }
     @Bean

@@ -12,11 +12,10 @@ import org.springframework.stereotype.Service;
  *
  * @author javaBrat
  */
-@Service
 public class AccountServiceImpl implements AccountService{
     private AccountDao accountDao;
-    @Autowired
-    public void setAccountDao(AccountDao accountDao){
+    
+    public AccountServiceImpl(AccountDao accountDao){
         this.accountDao=accountDao;
     }
     @Override

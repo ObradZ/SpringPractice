@@ -35,7 +35,6 @@ public class Main {
 
         System.out.println("Account 1 balance :" + accountService.getAccount(1).getBalance());
         System.out.println("Account 2 balance :" + accountService.getAccount(2).getBalance());
-        System.out.println(Main.class);
 
     }
 }
